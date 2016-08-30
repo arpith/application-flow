@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo.jsx';
+import MenuButton from './MenuButton.jsx';
 
 class Header extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class Header extends React.Component {
     return (
       <div style={style}>
         <Logo />
+        <MenuButton />
       </div>
     );
   }

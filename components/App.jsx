@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from './header.jsx';
-import Step from './step.jsx';
+import Header from './Header.jsx';
+import Step from './Step.jsx';
+import SubmitButton from './SubmitButton.jsx';
 
 class App extends React.Component {
   render() {
@@ -8,6 +9,7 @@ class App extends React.Component {
       <div>
         <Header />
         <Step number={4} />
+        <SubmitButton />
       </div>
     );
   }

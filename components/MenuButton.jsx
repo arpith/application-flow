@@ -4,11 +4,16 @@ class Logo extends React.Component {
   render() {
     const style = {
       width: '1em',
-      margin: '0.6em',
-      float: 'right'
+      padding: '0.6em',
+      float: 'right',
+      cursor: 'pointer'
     };
     return (
-        <img style={style} src="/menubutton.png" alt="Menu Button"></img>
+      <img style={style}
+        src="/menubutton.png"
+        alt="Menu Button"
+        onClick={this.props.onClick}>
+      </img>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Step from './Step.jsx';
-import SubmitButton from './SubmitButton.jsx';
+import Button from './Button.jsx';
 
 class StepPage extends React.Component {
   render() {
@@ -15,7 +15,7 @@ class StepPage extends React.Component {
     return (
       <div style={style}>
         <Step number={this.props.params.step} />
-        <SubmitButton />
+        <Button value="Submit"/>
       </div>
     );
   }

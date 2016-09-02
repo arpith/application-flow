@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Label from './Label.jsx';
 import TextInput from './TextInput.jsx';
-import SubmitButton from './SubmitButton.jsx';
+import Button from './Button.jsx';
 import {login} from '../actions';
 
 class LoginPage extends React.Component {
@@ -55,7 +55,7 @@ class LoginPage extends React.Component {
           label="Password"
           type="password"
         />
-        <SubmitButton />
+        <Button value="Login"/>
       </form>
     );
   }

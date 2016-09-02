@@ -17,7 +17,7 @@ function routes(store) {
   return (
     <Route path='/' component={App}>
       <IndexRedirect to='/step' />
-      <Route path='/step/:step' component={StepPage} onEnter={onEnter} />
+      <Route path='/step(/:step)' component={StepPage} onEnter={onEnter} />
       <Route path='/login' component={LoginPage} />
     </Route>
   );

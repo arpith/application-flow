@@ -1,15 +1,18 @@
-import {SIGN_IN} from '../constants';
+import {SUBMIT, LOGIN} from '../constants';
 
 const initialState = {
-  config: {},
-  streams: [],
-  messages: [],
-  users: []
+  furthest: 1,
+  isLoggedIn: false,
+  config: {}
 };
 
 const actionHandlers = {
-  [SIGN_IN]: (state, action) => Object.assign({}, state, {
-    config: action.config
+  [SUBMIT]: (state, action) => Object.assign({}, state, {
+    furthest: action.step
+  }),
+  [LOGIN]: (state, action) => Object.assign({}, state, {
+    isLoggedIn: action.isLoggedIn,
+    config: action.config,
   })
 };
 

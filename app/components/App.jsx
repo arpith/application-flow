@@ -16,10 +16,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <div style={style}>
-          <Step number={4} />
-          <SubmitButton />
-        </div>
+        {React.cloneElement(this.props.children)}
       </div>
     );
   }

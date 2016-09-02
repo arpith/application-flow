@@ -10,10 +10,12 @@ class App extends React.Component {
       padding: '2em',
       fontFamily: 'gotham, avenir',
     };
+
+    const shouldDisplayMenu = this.props.location.pathname != '/login';
  
     return (
       <div>
-        <Header />
+        <Header shouldDisplayMenu={shouldDisplayMenu} />
         {React.cloneElement(this.props.children)}
       </div>
     );

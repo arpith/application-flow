@@ -21,12 +21,13 @@ class Header extends React.Component {
       borderBottom: 'thin solid #D7DBDD'
     };
 
-    let dropdown = this.state.shouldDisplayDropdown ? <Dropdown /> : null;
+    const menuButton = this.props.shouldDisplayMenu ? <MenuButton onClick={this.onClick} /> : null;
+    const dropdown = this.state.shouldDisplayDropdown ? <Dropdown /> : null;
 
     return (
       <div style={style}>
         <Logo />
-        <MenuButton onClick={this.onClick}/>
+        {menuButton}
         {dropdown}
       </div>
     );

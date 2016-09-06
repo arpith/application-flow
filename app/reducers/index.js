@@ -1,33 +1,28 @@
-import {SUBMIT, LOGIN} from '../constants';
+import {SUBMIT, LOGIN, SIGNUP} from '../constants';
 
 const initialState = {
   furthest: 1,
-  isLoggedIn: false,
   config: {}
 };
 
-const actionHandlers = {
-  [SUBMIT]: (state, action) => Object.assign({}, state, {
-    furthest: action.step
-  }),
-  [LOGIN]: (state, action) => Object.assign({}, state, {
-    isLoggedIn: action.isLoggedIn,
-    config: action.config,
-  })
-};
-
-function createReducer (initialState, actionHandlers) {
-  return (state = initialState, action) => {
-    const reduceFn = actionHandlers[action.type];
-    if (!reduceFn) {
-      return state;
-    } else {
-      return { 
-        ...state,
-        ...reduceFn(state, action) 
-      };
-    }
-  };
+export function furthest(state, action) {
+  switch(action.type) {
+    case SUBMIT:
+      return action.step;
+    default:
+      if (!state) return initialState.furthest;
+      else return state;
+  }
 }
 
-export default createReducer(initialState, actionHandlers);
+export function config(state, action) {
+  switch(action.type) {
+    case SIGNUP:
+      return action.config;
+    case LOGIN:
+      return action.config;
+    default:
+      if (!state) return initialState.config;
+      else return state;
+  }
+}

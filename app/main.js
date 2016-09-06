@@ -6,7 +6,7 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import routes from './routes';
-import reducers from './reducers';
+import * as reducers from './reducers';
 
 const mountNode = document.getElementById("react-mount");
 const preloadedState = window.__PRELOADED_STATE__;

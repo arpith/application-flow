@@ -5,13 +5,17 @@ const ReactDOMServer = require('react-dom/server');
 const ReactRouter = require('react-router');
 const redux = require('redux');
 const express = require('express');
+const bodyParser = require('body-parser')
 const RouterContext = require('./app/RouterContext');
 const routes = require('./app/routes').default;
 const reducers = require('./app/reducers');
 const api = require('./api').default;
 
 const app = express();
+
 app.use(express.static('public'));
+app.use(bodyParser.json());
+
 app.set('view engine', 'ejs');
 
 app.all('/api/:endpoint', api);

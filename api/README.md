@@ -3,7 +3,23 @@ This is a RESTful API that returns JSON by default.
 
 ## Endpoints
 ### `POST /api/signup`
-The accepted parameters are `username` and `password`. The response will be:
+The accepted parameters are `username` and `password`. For example,
+
+```js
+const params = {
+  username: 'foo',
+  password: 'bar'
+};
+
+fetch('/api/signup', {
+  method: 'POST',
+  body: JSON.stringify(params),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+);
+```
+The response will be:
 
 ```json
 { "success": true, "message": "Signup Successful"}

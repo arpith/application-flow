@@ -3,14 +3,12 @@ import {SUBMIT, LOGIN, SIGNUP} from '../constants.js';
 function api(endpoint, config) {
   const url = '/api' + endpoint;
   const auth = "Basic " + new Buffer(config.username + ":" + config.password).toString("base64");
-  let form = new FormData();
-  form.append('username', config.username);
-  form.append('password', config.password);
   return fetch(url, {
     method: 'POST',
-    body: form,
+    body: JSON.stringify(config),
     headers: {
-      'Authorization': auth
+      'Authorization': auth,
+      'Content-Type': 'application/json'
     }
   }).then(res => res.json());
 }

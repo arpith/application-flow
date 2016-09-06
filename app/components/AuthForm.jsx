@@ -2,29 +2,28 @@ import React, { PropTypes } from 'react';
 import Label from './Label.jsx';
 import TextInput from './TextInput.jsx';
 import Button from './Button.jsx';
-import {login} from '../actions';
 
-class LoginPage extends React.Component {
+class AuthForm extends React.Component {
   static propTypes = {
     location: PropTypes.object
   };
 
   static contextTypes = {
     store: PropTypes.any,
-    history: PropTypes.object.isRequired
+    router: React.PropTypes.object.isRequired
   };
 
   constructor(props, context) {
     super(props, context);
     this.state = {username: '', password: ''};
     this.onChange = (e) => this.setState({[e.target.name]: e.target.value});
-    this.login = this.login.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  login(e) {
+  onSubmit(e) {
     e.preventDefault();
-    this.context.store.dispatch(login(this.state, () => {
-      this.context.history.pushState({}, '/');
+    this.context.store.dispatch(this.props.action(this.state, () => {
+      this.context.router.push({}, '/');
     }));
   }
 
@@ -34,11 +33,13 @@ class LoginPage extends React.Component {
       minWidth: '350px',
       margin: 'auto',
       padding: '2em',
-      fontFamily: 'gotham, avenir'
+      fontFamily: 'gotham, avenir',
+      float: 'left',
+      clear: 'both'
     };
  
     return (
-      <form onSubmit={this.login} style={style}>
+      <form onSubmit={this.onSubmit} style={style}>
         <Label htmlFor="username" value="Username" />
         <TextInput id="username"
           name="username"
@@ -55,10 +56,10 @@ class LoginPage extends React.Component {
           label="Password"
           type="password"
         />
-        <Button value="Login"/>
+        <Button value={this.props.submitButtonValue} />
       </form>
     );
   }
 }
 
-export default LoginPage;
+export default AuthForm;

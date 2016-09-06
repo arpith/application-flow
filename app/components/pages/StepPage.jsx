@@ -1,6 +1,6 @@
 import React from 'react';
-import Step from './Step.jsx';
-import Button from './Button.jsx';
+import Step from '../Step.jsx';
+import Button from '../Button.jsx';
 
 class StepPage extends React.Component {
   render() {

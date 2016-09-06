@@ -7,14 +7,17 @@ const redux = require('redux');
 const express = require('express');
 const RouterContext = require('./app/RouterContext');
 const routes = require('./app/routes').default;
-const reducers = require('./app/reducers').default;
+const reducers = require('./app/reducers');
+const api = require('./api').default;
 
 const app = express();
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
+app.all('/api/:endpoint', api);
+
 app.get('*', (req, res) => {
-  const store = redux.createStore(reducers);
+  const store = redux.createStore(redux.combineReducers(reducers));
   ReactRouter.match({ routes: routes(store), location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
       res.status(500).send({error: error.message});

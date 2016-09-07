@@ -17,7 +17,7 @@ function Dropdown({furthest}) {
     background: 'white'
   };
     
-  const enabled = (i) => i < this.context.store.getState().furthest;
+  const enabled = (i) => i < furthest;
   const items = (i) => <MenuItem key={i} value={`Step ${i+1}`} link={`/step/${i+1}`} enabled={enabled(i)} />;
   const list = (n) => [...Array(n).keys()].map(items);
 

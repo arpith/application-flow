@@ -17,7 +17,9 @@ class App extends React.Component {
     return (
       <div>
         <Header shouldDisplayMenu={shouldDisplayMenu} />
-        {React.cloneElement(this.props.children)}
+        <div style={style}>
+          {React.cloneElement(this.props.children)}
+        </div>
       </div>
     );
   }

@@ -4,16 +4,8 @@ import Button from '../Button.jsx';
 
 class StepPage extends React.Component {
   render() {
-    const style = {
-      width: '42%',
-      minWidth: '350px',
-      margin: 'auto',
-      padding: '2em',
-      fontFamily: 'gotham, avenir'
-    };
- 
     return (
-      <div style={style}>
+      <div>
         <Step number={this.props.params.step} />
         <Button value="Submit"/>
       </div>

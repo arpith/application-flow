@@ -43,7 +43,6 @@ class AuthForm extends React.Component {
           placeholder="username"
           onChange={this.onChange}
           label="Username"
-          type="email"
         />
         <Label htmlFor="password" value="Password" />
         <TextInput id="password" 

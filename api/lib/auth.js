@@ -4,7 +4,7 @@ import basicAuth from 'basic-auth';
 
 bluebird.promisifyAll(redis.RedisClient.prototype);
 const bcrypt = bluebird.promisifyAll(require('bcrypt'));
-const client = redis.createClient();
+const client = redis.createClient(process.env.REDIS_URL);
 
 export function signup(username, password) {
   return bcrypt.genSaltAsync(10).then(function(salt) {

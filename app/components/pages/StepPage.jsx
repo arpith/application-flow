@@ -11,13 +11,10 @@ function StepPage({furthest, step}) {
     dispatch(submit(() => push({}, '/')));
   };
 
-  let button = '';
-  if (furthest < 5) button = <Button value="Submit" />;
-
   return (
     <form onSubmit={onSubmit}>
       <Step number={step} />
-      {button}
+      <Button value="Submit" disabled={furthest>4} />
     </form>
   );
 }

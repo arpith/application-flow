@@ -7,7 +7,7 @@ class Button extends React.Component {
       clear: 'both',
     };
     return (
-      <input type="submit" value={this.props.value} style={style}></input>
+      <input type="submit" value={this.props.value} style={style} disabled={this.props.disabled}></input>
     );
   }
 }

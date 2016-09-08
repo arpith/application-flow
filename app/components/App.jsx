@@ -11,8 +11,8 @@ class App extends React.Component {
       fontFamily: 'gotham, avenir',
     };
 
-    const pagesWithoutMenu = ['/login', '/signup'];
-    const shouldDisplayMenu = !pagesWithoutMenu.includes(this.props.location.pathname);
+    const pathname = this.props.location.pathname;
+    const shouldDisplayMenu = (pathname !== '/login') && (pathname !== '/signup');
  
     return (
       <div>

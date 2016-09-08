@@ -4,10 +4,6 @@ import TextInput from './TextInput.jsx';
 import Button from './Button.jsx';
 
 class AuthForm extends React.Component {
-  static propTypes = {
-    location: PropTypes.object
-  };
-
   static contextTypes = {
     store: PropTypes.any,
     router: React.PropTypes.object.isRequired
@@ -22,8 +18,9 @@ class AuthForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.context.store.dispatch(this.props.action(this.state, () => {
-      this.context.router.push({}, '/');
+    const {store, router} = this.context;
+    store.dispatch(this.props.action(this.state, () => {
+      router.push({}, '/');
     }));
   }
 

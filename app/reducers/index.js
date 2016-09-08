@@ -1,4 +1,4 @@
-import {SUBMIT, LOGIN, SIGNUP} from '../constants';
+import { SUBMIT, UPDATE, SIGNUP, LOGIN } from '../constants';
 
 const initialState = {
   furthest: 1,
@@ -8,7 +8,9 @@ const initialState = {
 export function furthest(state, action) {
   switch(action.type) {
     case SUBMIT:
-      return action.step;
+      return action.furthest;
+    case UPDATE:
+      return action.furthest;
     default:
       if (!state) return initialState.furthest;
       else return state;

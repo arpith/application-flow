@@ -1,4 +1,4 @@
-import { SUBMIT, UPDATE, SIGNUP, LOGIN } from '../constants';
+import { SUBMIT, UPDATE, SIGNUP, LOGIN, LOGOUT } from '../constants';
 
 const initialState = {
   furthest: 1,
@@ -22,6 +22,8 @@ export function config(state, action) {
     case SIGNUP:
       return action.config;
     case LOGIN:
+      return action.config;
+    case LOGOUT:
       return action.config;
     default:
       if (!state) return initialState.config;

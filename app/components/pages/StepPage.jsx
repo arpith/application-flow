@@ -21,7 +21,7 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function mapDispatchToProps(dispatch, {history}) {
+function mapDispatchToProps(dispatch) {
   return {
     onSubmit: (e) => {
       e.preventDefault();

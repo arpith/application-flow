@@ -1,5 +1,5 @@
 import { api } from '../api.js';
-import { SUBMIT, UPDATE, SIGNUP, LOGIN } from '../constants.js';
+import { SUBMIT, UPDATE, SIGNUP, LOGIN, LOGOUT } from '../constants.js';
 
 export function signup(config, redirect) {
   return (dispatch, getState) => {
@@ -18,7 +18,7 @@ export function signup(config, redirect) {
 
 export function login(config, redirect) {
   return (dispatch, getState) => {
-    api(config).login().then((res) => {
+    api(config).token.create().then((res) => {
       if (res.success) {
         config.token = res.token;
         dispatch({
@@ -26,6 +26,22 @@ export function login(config, redirect) {
           config: config
         });
         update(redirect)(dispatch, getState);
+      }
+    });
+  };
+};
+
+export function logout(redirect) {
+  return (dispatch, getState) => {
+    const config = getState().config;
+    api(config).token.del().then((res) => {
+      if (res.success) {
+        delete config.token;
+        dispatch({
+          type: LOGOUT,
+          config: config
+        });
+        if (redirect) redirect();
       }
     });
   };

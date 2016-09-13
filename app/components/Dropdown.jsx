@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import MenuItem from './MenuItem.jsx';
+import LogoutButton from './LogoutButton.jsx';
 
-function Dropdown({furthest}) {
+function Dropdown({ furthest }) {
   const style = {
     border: 'thin solid #D7DBDD',
     borderRadius: '0.2em',
@@ -18,13 +19,21 @@ function Dropdown({furthest}) {
   };
     
   const enabled = (i) => i < furthest;
-  const items = (i) => <MenuItem key={i} value={`Step ${i+1}`} link={`/step/${i+1}`} enabled={enabled(i)} />;
-  const list = (n) => [...Array(n).keys()].map(items);
+  const generateItem = (i) => {
+    return (
+      <MenuItem key={i} 
+        value={`Step ${i+1}`} 
+        link={`/step/${i+1}`} 
+        enabled={enabled(i)} 
+      />
+    );
+  };
+  const list = (n) => [...Array(n).keys()].map(generateItem);
 
   return (
     <ul style={style}>
       {list(5)}
-      <MenuItem key='logout' value='Logout' link='/' enabled={true}/>
+      <LogoutButton />
     </ul>
   );
 }

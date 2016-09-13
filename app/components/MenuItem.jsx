@@ -15,13 +15,6 @@ class MenuItem extends React.Component {
       lineHeight: '1.8em'
     };
     
-    const logoutStyle = Object.assign({
-      borderTop: 'thin solid #D7DBDD',
-      marginTop: '0.4em',
-      paddingTop: '0.2em'
-    }, itemStyle);
-
-    if (this.props.value === 'Logout') itemStyle = logoutStyle;
     if (!this.props.enabled) itemStyle.color = 'D7DBDD';
     
     const listItem = <li style={itemStyle}>{this.props.value}</li>;

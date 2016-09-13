@@ -39,7 +39,7 @@ export function login(req) {
 
 export function logout(req) {
   const user = basicAuth(req);
-  return client.sremAsync('tokens:'+user.name, user.token);
+  return client.sremAsync('tokens:'+user.name, user.pass);
 }
 
 export function auth(req) {

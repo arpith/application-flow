@@ -21,7 +21,10 @@ export function api(config) {
 
   return {
     signup: () => call('/signup', 'POST'),
-    login: () => call('/login', 'POST'),
+    token: {
+      create: () => call('/token', 'POST'),
+      del: () => call('/token', 'DELETE')
+    },
     step: {
       post: () => call('/step', 'POST'),
       get: () => call('/step', 'GET')

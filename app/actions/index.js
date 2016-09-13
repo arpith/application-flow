@@ -1,3 +1,6 @@
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 import { SUBMIT, UPDATE, SIGNUP, LOGIN } from '../constants.js';
 
 function api(config) {

@@ -22,7 +22,10 @@ class Header extends React.Component {
     };
 
     const menuButton = this.props.shouldDisplayMenu ? <MenuButton onClick={this.toggleDropdown} /> : null;
-    const dropdown = this.props.shouldDisplayMenu && this.state.shouldDisplayDropdown ? <Dropdown /> : null;
+    let dropdown = null;
+    if (this.props.shouldDisplayMenu && this.state.shouldDisplayDropdown) {
+      dropdown = <Dropdown toggle={this.toggleDropdown} />;
+    }
 
     return (
       <div style={style}>

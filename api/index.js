@@ -1,10 +1,10 @@
 import signup from './signup.js';
-import login from './login.js';
+import token from './token.js';
 import step from './step.js';
 
 const endpoints = {
   'signup': signup,
-  'login': login,
+  'token': token,
   'step': step
 };
 

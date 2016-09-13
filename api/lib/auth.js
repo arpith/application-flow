@@ -28,15 +28,18 @@ export function signup(username, password) {
 }
 
 export function login(req) {
-  const user = basicAuth(req);
-  if (!user || !user.name || !user.pass) return false;
-  return client.getAsync('auth:' + user.name).then((hash) => {
+  return client.getAsync('auth:' + req.body.username).then((hash) => {
     if (hash === 'nil') return false;
-    else return bcrypt.compareAsync(user.pass, hash);
+    else return bcrypt.compareAsync(req.body.password, hash);
   }).then((success) => {
     if (!success) return false;
-    else return addToken(user.name);
+    else return addToken(req.body.username);
   });
+}
+
+export function logout(req) {
+  const user = basicAuth(req);
+  return client.sremAsync('tokens:'+user.name, user.token);
 }
 
 export function auth(req) {

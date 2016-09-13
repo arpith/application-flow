@@ -9,9 +9,7 @@ class TextInput extends React.Component {
       padding: '0.2em',
       paddingLeft: '0.4em',
       paddingRight: '0.4em',
-      marginLeft: '-8em',
-      float: 'left',
-      clear: 'both',
+      flex: '1 1 auto'
     };
     return <label htmlFor={this.props.htmlFor} style={style}>{this.props.value}</label>;
   }

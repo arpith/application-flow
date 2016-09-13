@@ -26,13 +26,10 @@ class AuthForm extends React.Component {
 
   render() {
     const style = {
-      width: '42%',
-      minWidth: '350px',
-      margin: 'auto',
-      padding: '2em',
       fontFamily: 'gotham, avenir',
-      float: 'left',
-      clear: 'both'
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start'
     };
  
     return (

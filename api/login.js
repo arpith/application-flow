@@ -1,12 +1,11 @@
-import basicAuth from 'basic-auth';
-import { auth } from './lib/auth';
+import { login } from './lib/auth';
 
 export default (req, res) => {
-  auth(req).then(function(success) {
-    if (!success) {
+  login(req).then(function(token) {
+    if (!token) {
       res.status(401).send({success: false, error: 'Authentication Failure'});
     } else {
-      res.send({success: true, message: 'Login Successful'});
+      res.send({success: true, message: 'Login Successful', token: token});
     }
   });
 };

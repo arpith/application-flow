@@ -7,12 +7,12 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {shouldDisplayDropdown: false};
-    this.onClick = () => {
+    this.toggleDropdown = () => {
       const newState = !this.state.shouldDisplayDropdown;
       this.setState({shouldDisplayDropdown: newState});
     };
   }
-
+ 
   render() {
     const style = {
       padding: '0.5em',
@@ -21,8 +21,8 @@ class Header extends React.Component {
       borderBottom: 'thin solid #D7DBDD'
     };
 
-    const menuButton = this.props.shouldDisplayMenu ? <MenuButton onClick={this.onClick} /> : null;
-    const dropdown = this.state.shouldDisplayDropdown ? <Dropdown /> : null;
+    const menuButton = this.props.shouldDisplayMenu ? <MenuButton onClick={this.toggleDropdown} /> : null;
+    const dropdown = this.props.shouldDisplayMenu && this.state.shouldDisplayDropdown ? <Dropdown /> : null;
 
     return (
       <div style={style}>

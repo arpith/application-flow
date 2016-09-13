@@ -8,9 +8,7 @@ import SignupPage from './components/pages/SignupPage.jsx';
 function routes(store) {
   function onEnter(nextState, replace) {
     const state = store.getState();
-    console.log("in on enter");
     if (!state.config.token) {
-      console.log("no token");
       if (!(state.config.username && state.config.password)) {
         replace('/signup');
       } else {

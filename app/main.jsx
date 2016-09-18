@@ -2,10 +2,10 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { render } from 'react-dom';
 import { Router, browserHistory } from 'react-router';
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
-import routes from './routes';
+import routes from './routes.jsx';
 import * as reducers from './reducers';
 
 const mountNode = document.getElementById("react-mount");
